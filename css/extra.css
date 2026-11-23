@@ -1,0 +1,75 @@
+/* =====================================================
+   extra.css  -  Blog + Projects styles
+   Loaded AFTER style.css, so it can reuse the same colors.
+   ===================================================== */
+
+/* ---------- Menu: a little tighter, because there are more links now ---------- */
+nav ul{gap:20px}
+nav ul a.active{color:var(--blue);font-weight:700}
+
+/* ---------- Projects section ---------- */
+.proj-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.proj-card{grid-column:span 2;display:flex;flex-direction:column;gap:10px}
+.proj-card:nth-child(n+4){grid-column:span 3}
+.proj-card h3{font-size:1.15rem}
+.proj-card p{color:var(--muted);font-size:.93rem}
+.proj-card .chips{margin-top:auto;padding-top:6px}
+.badge{align-self:flex-start;background:var(--bg);border:1px solid var(--line);color:var(--muted);font-size:.78rem;font-weight:700;padding:3px 12px;border-radius:20px}
+.badge.live{background:var(--blue);color:#fff;border-color:var(--blue)}
+.proj-note{margin-top:24px;color:var(--muted);font-size:.93rem}
+.proj-cta{margin-top:20px}
+
+/* ---------- Blog list page ---------- */
+.page-head{padding-top:64px;padding-bottom:24px}
+.page-head h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:2.6rem;line-height:1.15;margin-bottom:10px}
+.page-head .sub{margin-bottom:0}
+.blog-list{padding-top:24px;padding-bottom:80px}
+.blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.post-card{display:flex;flex-direction:column;gap:10px;color:var(--ink);transition:transform .15s ease,border-color .15s ease}
+.post-card:hover{transform:translateY(-3px);border-color:var(--blue)}
+.post-card h3{font-family:"Bricolage Grotesque",sans-serif;font-size:1.35rem;line-height:1.3}
+.post-card p{color:var(--muted);font-size:.95rem}
+.post-tag{align-self:flex-start;background:var(--blue);color:#fff;font-size:.75rem;font-weight:700;padding:3px 12px;border-radius:20px}
+.post-meta{color:var(--muted);font-size:.85rem}
+.read-more{margin-top:auto;color:var(--blue);font-weight:700;font-size:.93rem}
+.empty-note{margin-top:20px;color:var(--muted);font-size:.93rem}
+
+/* ---------- Single blog post ---------- */
+.post{max-width:720px;margin:0 auto;padding:56px 0 72px}
+.back-link{display:block;margin-bottom:24px;font-weight:600;font-size:.93rem}
+.post .post-tag{display:inline-block}
+.post h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:2.4rem;line-height:1.18;margin:12px 0}
+.post .post-meta{margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.post h2{font-family:"Bricolage Grotesque",sans-serif;font-size:1.55rem;margin:36px 0 10px}
+.post p{margin-bottom:16px;font-size:1.05rem;color:#2b2b2b}
+.post ul{margin:0 0 18px 22px}
+.post li{margin-bottom:8px;font-size:1.05rem;color:#2b2b2b}
+.callout{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:10px;padding:18px 22px;margin:26px 0}
+.callout p{margin:0;font-weight:600;color:var(--ink)}
+.author{display:flex;align-items:center;gap:14px;margin-top:44px;padding-top:24px;border-top:1px solid var(--line)}
+.author img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top;background:var(--blue)}
+.author b{display:block}
+.author span{color:var(--muted);font-size:.9rem}
+
+/* ---------- Tablet ---------- */
+@media (max-width:860px){
+  .proj-grid{grid-template-columns:1fr 1fr}
+  .proj-card,.proj-card:nth-child(n+4){grid-column:auto}
+  .proj-card:last-child{grid-column:1 / -1}
+}
+
+/* ---------- Phone ---------- */
+@media (max-width:720px){
+  .proj-grid,.blog-grid{grid-template-columns:1fr}
+  .proj-card:last-child{grid-column:auto}
+  .page-head{padding-top:44px;padding-bottom:16px}
+  .page-head h1{font-size:2rem}
+  .post{padding:36px 0 56px}
+  .post h1{font-size:1.9rem}
+}
+
+/* ---------- Feature image ---------- */
+.feature-img{display:block;width:100%;height:auto;aspect-ratio:1600/840;object-fit:cover;border-radius:14px;margin-bottom:24px}
+/* ---------- Blog list card: top image ---------- */
+.post-card{overflow:hidden}
+.post-thumb{display:block;width:calc(100% + 52px);max-width:none;margin:-24px -26px 6px;aspect-ratio:1600/840;object-fit:cover}
