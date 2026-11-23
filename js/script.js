@@ -85,3 +85,47 @@ if (photo) {
     if (values[key]) el.textContent = values[key];
   });
 })();
+
+// ===== Blog: search and category filter =====
+// The sidebar sends visitors to blog.html?q=word or blog.html?cat=category-name
+(function () {
+  var grid = document.querySelector(".blog-grid");
+  if (!grid) return;
+  var params = new URLSearchParams(window.location.search);
+  var q = (params.get("q") || "").trim();
+  var cat = (params.get("cat") || "").trim();
+  if (!q && !cat) return;
+
+  var catNames = {
+    "my-journey": "My Journey",
+    "advanced-excel": "Advanced Excel",
+    "power-bi": "Power BI",
+    "python": "Python",
+    "sql": "SQL",
+    "data-research": "Data Research"
+  };
+
+  var shown = 0;
+  grid.querySelectorAll(".post-card").forEach(function (card) {
+    var text = (card.querySelector("h3").textContent + " " +
+                card.querySelector("p").textContent + " " +
+                card.querySelector(".post-tag").textContent).toLowerCase();
+    var okQ = !q || text.indexOf(q.toLowerCase()) !== -1;
+    var okC = !cat || card.getAttribute("data-cat") === cat;
+    var show = okQ && okC;
+    card.style.display = show ? "" : "none";
+    if (show) shown++;
+  });
+
+  var what = q ? '"' + q + '"' : (catNames[cat] || cat);
+  var note = document.getElementById("blogNote");
+  if (note) {
+    note.textContent = shown > 0
+      ? "Showing " + shown + (shown === 1 ? " post" : " posts") + " for " + what + ". "
+      : "No posts found for " + what + ". ";
+    var all = document.createElement("a");
+    all.href = "blog.html";
+    all.textContent = "Show all posts";
+    note.appendChild(all);
+  }
+})();

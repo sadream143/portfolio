@@ -12,10 +12,10 @@
   --line:#d8d3cf;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
+html{scroll-behavior:smooth;scroll-padding-top:70px;scrollbar-gutter:stable}
 body{font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
 a{color:var(--blue);text-decoration:none}
-.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
 
 /* ===== Header ===== */
 header{position:sticky;top:0;background:rgba(236,233,231,.93);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:10}
